@@ -23,7 +23,11 @@ def main():
     purchases = []
 
     if step == '1':
-        register(registered_users)
+        username =user_name()
+        password =password_validation()
+        phone = phone_number()
+        register(username,password,phone,registered_users)
+
 
     elif step == '0':
         username = login(3, registered_users)
