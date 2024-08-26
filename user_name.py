@@ -1,16 +1,20 @@
 import re
-import time
 
 
-def user_name() : 
-  p = r'^\S\w{1,10}$'
-  while True :
-      b = input("Type your username :")
-      result = re.search(p, b)
-      if result is not None :
-        print('Username is valid')
-        return b
-      elif result is None :
-         print('Please entrer a valid username and Try again')
-      return user_name() 
+def user_name():
+    """
+    Prompts the user to enter a valid username. The username must be between 2 and 11 characters long,
+    starting with a non-whitespace character. It can contain alphanumeric characters and underscores.
 
+    """
+    pattern = r"^\S\w{1,10}$"
+
+    while True:
+        username = input("Type your username: ")
+        result = re.search(pattern, username)
+
+        if result:
+            print("Username is valid")
+            return username
+        else:
+            print("Invalid username. Please enter a valid username and try again.")

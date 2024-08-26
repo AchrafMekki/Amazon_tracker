@@ -3,7 +3,11 @@ import time
 
 
 def enter_purchase(username, purchases):
-    date = input("Enter the date of the purchase (MM/DD/YYYY or MM-DD-YYYY): ")
+    """
+    Records a new purchase entry for the user.
+    """
+
+    date = input("Enter the date of the purchase (MM/DD/YYYY): ")
     item = input("Enter the item purchased (at least 3 characters): ")
 
     while len(item) < 3:
@@ -27,10 +31,13 @@ def enter_purchase(username, purchases):
     while True:
         try:
             quantity = int(input("Enter the quantity purchased (1 and above): "))
-            if quantity < 1:
+            if quantity >= 1:
                 break
+            else:
+                print("Quantity should be at least 1. Please enter a valid quantity.")
         except ValueError:
             print("Invalid input. Please enter a valid integer value for the quantity (1 and above).")
+
     purchase = {
         "date": date,
         "item": item,

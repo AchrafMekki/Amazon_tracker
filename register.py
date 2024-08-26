@@ -2,24 +2,12 @@ import re
 import time
 
 
-
-def register() : 
-
-  registered_users = {}
-  i = input('username :')
-
-  while i in registered_users : 
-    print('Username already exist. Please choose another one ')
-    #i = input('username :')    
-    return i  
-  
-  p = input('Enter password : ')
-  registered_users.update({i: p}) #key : value
-  
-  print(f'{i} You successfully Registered !')
-  print('Updated registered_users:', registered_users)
-
-    
-  
-
-
+def register(username, password, phone, registered_users):
+    if username in registered_users:
+        print("Username already exists. Please choose another one.")
+        return False
+    else:
+        registered_users[username] = {'password': password, 'phone': phone}
+        print(f"{username} You have successfully registered!")
+        print("Updated registered_users:", registered_users)
+        return True
